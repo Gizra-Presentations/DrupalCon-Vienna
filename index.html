@@ -351,8 +351,6 @@ sue = { name = "Sue", drupalCon = Success EveryDict.empty }
         </pre>
 
         <aside class="notes" data-markdown>
-          * Using webdata, starting with NotAsked
-          * How easy to put a spinner, because you have the exact state.
         </aside>
       </section>
 
@@ -363,9 +361,71 @@ sue = { name = "Sue", drupalCon = Success EveryDict.empty }
         <h3>(and Caching While at It)</h3>
       </section>
 
+      <!-- iHanagane -->
       <section>
         <img src="https://user-images.githubusercontent.com/125707/30781460-c119ad20-a127-11e7-8421-408fc31b07c2.gif" class="stretch">
       </section>
+
+      <section>
+        <pre>
+          <code class="elm" data-trim>
+--  https://github.com/gizra/elm-storage-key
+
+type StorageKey recordId
+    = New
+    | Existing recordId
+          </code>
+        </pre>
+
+        <aside class="notes" data-markdown>
+        </aside>
+      </section>
+
+      <section>
+        <pre>
+          <code class="elm" data-trim>
+type ExaminationId
+    = ExaminationId Int
+
+type alias Examination =
+    { weight : Float
+    , height : Float
+    }
+
+type alias ExaminationDict =
+    EveryDict (StorageKey ExaminationId) Examination
+
+type alias Child =
+    { name : String
+    , examination : ExaminationDict
+    -- ...
+    }
+          </code>
+        </pre>
+
+        <aside class="notes" data-markdown>
+        </aside>
+      </section>
+
+      <section>
+        <pre>
+          <code class="elm" data-trim>
+--  https://github.com/stoeffel/editable
+
+type Editable a
+    = Editable a a
+    | ReadOnly a
+
+
+oldValue = Editable.ReadOnly "old" |> Editable.value  --> "old"
+newValue = Editable.Editable "old" "new" |> Editable.value  --> "new"
+          </code>
+        </pre>
+
+        <aside class="notes" data-markdown>
+        </aside>
+      </section>
+
 
 
 
