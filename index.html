@@ -226,7 +226,7 @@ type Maybe a
         <aside class="notes" data-markdown>
         </aside>
       </section>
-      
+
       <section>
         <pre>
           <code class="elm" data-trim>
@@ -251,7 +251,12 @@ type alias Person =
     , failure : Bool
     }
 
-sue = { name = "Sue", drupalCon = Nothing, loading = True, failure = False }
+sue =
+    { name = "Sue"
+    , drupalCon = Nothing
+    , loading = True
+    , failure = False
+    }
           </code>
         </pre>
 
