@@ -366,6 +366,7 @@ sue = { name = "Sue", drupalCon = Success EveryDict.empty }
         <img src="https://user-images.githubusercontent.com/125707/30781460-c119ad20-a127-11e7-8421-408fc31b07c2.gif" class="stretch">
       </section>
 
+      <!-- Storage Key -->
       <section>
         <pre>
           <code class="elm" data-trim>
@@ -407,6 +408,7 @@ type alias Child =
         </aside>
       </section>
 
+      <!-- Editable -->
       <section>
         <pre>
           <code class="elm" data-trim>
@@ -421,11 +423,52 @@ oldValue = Editable.ReadOnly "old" |> Editable.value  --> "old"
 newValue = Editable.Editable "old" "new" |> Editable.value  --> "new"
           </code>
         </pre>
-
         <aside class="notes" data-markdown>
         </aside>
       </section>
 
+      <section>
+        <pre>
+          <code class="elm" data-trim>
+
+type alias Examination =
+    { weight : Editable Float
+    , height : Editable Float
+    }
+
+          </code>
+        </pre>
+        <aside class="notes" data-markdown>
+        </aside>
+      </section>
+
+      <!-- Editable WebData-->
+      <section>
+        <pre>
+          <code class="elm" data-trim>
+--  https://github.com/stoeffel/editable
+
+type EditableWebData a
+    = EditableWebData (Editable a) (WebData ())
+          </code>
+        </pre>
+        <aside class="notes" data-markdown>
+        </aside>
+      </section>
+
+      <section>
+        <pre>
+          <code class="elm" data-trim>
+
+type alias Examination =
+    { weight : EditableWebData Float
+    , height : EditableWebData Float
+    }
+          </code>
+        </pre>
+        <aside class="notes" data-markdown>
+        </aside>
+      </section>
 
 
 
