@@ -74,7 +74,7 @@ $message = \Drupal::entityTypeManager()->getStorage('message')->create([
       </section>
 
       <section>
-        <h2>Types</h2>
+        <h2>Types & Modeling the Problem</h2>
       </section>
 
       <!-- Bool type -->
@@ -97,30 +97,6 @@ type DrupalCon
     | Baltimore
     | Vienna
 
-          </code>
-        </pre>
-        <aside class="notes" data-markdown>
-        </aside>
-      </section>
-
-      <section>
-        <pre>
-          <code class="elm" data-trim>
-type DrupalCon
-    = NewOrleans
-    | Dublin
-    | Baltimore
-    | Vienna
-
-          </code>
-        </pre>
-        <aside class="notes" data-markdown>
-        </aside>
-      </section>
-
-      <section>
-        <pre>
-          <code class="elm" data-trim>
 getName : DrupalCon -> String
 getName drupalCon =
     case drupalCon of
@@ -129,11 +105,14 @@ getName drupalCon =
 
         Baltimore ->
             "Baltimore"
+
           </code>
         </pre>
         <aside class="notes" data-markdown>
         </aside>
       </section>
+
+
 
       <section>
         <pre>
@@ -149,15 +128,7 @@ type ConUs
 type DrupalCon
     = DrupalConEu ConEu
     | DrupalConUs ConUs
-          </code>
-        </pre>
-        <aside class="notes" data-markdown>
-        </aside>
-      </section>
 
-      <section>
-        <pre>
-          <code class="elm" data-trim>
 getName : DrupalCon -> String
 getName drupalCon =
     case drupalCon of
@@ -173,6 +144,7 @@ getName drupalCon =
         <aside class="notes" data-markdown>
         </aside>
       </section>
+
 
       <section>
         <pre>
@@ -193,43 +165,13 @@ tom = { name = "Tom", drupalCon = Vienna }
       <section>
         <pre>
           <code class="elm" data-trim>
-type Maybe a
-    = Just a
-    | Nothing
-          </code>
-        </pre>
-
-        <aside class="notes" data-markdown>
-        </aside>
-      </section>
-
-      <section>
-        <pre>
-          <code class="elm" data-trim>
 type alias Person =
     { name : String
-    , drupalCon : Maybe DrupalCon
+    , drupalCon : List DrupalCon
     }
 
-tom = { name = "Tom", drupalCon = Just Vienna }
-sue = { name = "Sue", age = Nothing }
-          </code>
-        </pre>
-
-        <aside class="notes" data-markdown>
-        </aside>
-      </section>
-
-      <section>
-        <pre>
-          <code class="elm" data-trim>
-type alias Person =
-    { name : String
-    , drupalCon : Maybe (List DrupalCon)
-    }
-
-tom = { name = "Tom", drupalCon = Just [ Vienna, Baltimore ] }
-sue = { name = "Sue", age = Nothing }
+tom = { name = "Tom", drupalCon = [ Vienna, Baltimore ] }
+sue = { name = "Sue", drupalCon = [] }
           </code>
         </pre>
 
@@ -272,6 +214,19 @@ sue = { name = "Sue", drupalCon = EveryDict.empty }
         </aside>
       </section>
 
+      <section>
+        <pre>
+          <code class="elm" data-trim>
+type Maybe a
+    = Just a
+    | Nothing
+          </code>
+        </pre>
+
+        <aside class="notes" data-markdown>
+        </aside>
+      </section>
+      
       <section>
         <pre>
           <code class="elm" data-trim>
