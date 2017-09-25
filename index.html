@@ -215,6 +215,7 @@ sue = { name = "Sue", drupalCon = EveryDict.empty }
       </section>
 
       <section>
+        <code>GET: /api/drupalcons</code>
         <pre>
           <code class="elm" data-trim>
 type Maybe a
@@ -234,6 +235,9 @@ type alias Person =
     { name : String
     , drupalCon : Maybe DrupalConDict
     }
+
+tom = { name = "Tom", drupalCon = Nothing }
+sue = { name = "Sue", drupalCon = Just EveryDict.empty }
           </code>
         </pre>
 
