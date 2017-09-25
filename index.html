@@ -237,6 +237,7 @@ type alias Person =
     }
 
 tom = { name = "Tom", drupalCon = Nothing }
+
 sue = { name = "Sue", drupalCon = Just EveryDict.empty }
           </code>
         </pre>
@@ -368,6 +369,28 @@ type alias Child =
     , examination : ExaminationDict
     -- ...
     }
+          </code>
+        </pre>
+
+        <aside class="notes" data-markdown>
+        </aside>
+      </section>
+
+      <!-- Storage Key -->
+      <section>
+        <pre>
+          <code class="elm" data-trim>
+--  https://github.com/gizra/elm-storage-key
+
+type StorageKey recordId
+    = New
+    | Existing recordId
+
+
+type StorageKeyWithLocal recordId localId
+    = New
+    | Existing recordId
+    | Local localId
           </code>
         </pre>
 
